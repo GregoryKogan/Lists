@@ -15,11 +15,9 @@ import { useTheme } from "vuetify";
 export default {
   name: "ThemeToggle",
 
-  data() {
-    return {
-      isDark: localStorage.theme == "myCustomDarkTheme",
-    };
-  },
+  data: () => ({
+    isDark: localStorage.theme == "myCustomDarkTheme",
+  }),
 
   watch: {
     isDark(newVal: boolean) {

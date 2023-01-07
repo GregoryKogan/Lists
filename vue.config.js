@@ -7,7 +7,7 @@ module.exports = defineConfig({
     short_name: "Lists",
     display: "standalone",
     themeColor: "#f6ca09",
-    background_color: "#000000"
+    background_color: "#000000",
   },
 
   pluginOptions: {

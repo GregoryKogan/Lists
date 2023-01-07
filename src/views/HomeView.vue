@@ -1,7 +1,9 @@
 <template>
-  <h1>Il!? Hello, World!</h1>
-  <v-btn prepend-icon="mdi-vuetify" variant="tonal"> Button </v-btn>
-  <theme-toggle />
+  <div class="home">
+    <h1>Il!? Hello, World!</h1>
+    <v-btn prepend-icon="mdi-vuetify" variant="tonal"> Button </v-btn>
+    <theme-toggle />
+  </div>
 </template>
 
 <script lang="ts">

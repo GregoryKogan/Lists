@@ -9,19 +9,34 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useTheme } from "vuetify";
+import { usePocketbaseStore } from "@/stores/pocketbase";
+import PocketBase from "pocketbase";
 
 export default defineComponent({
   name: "App",
 
-  mounted() {
-    const theme = useTheme();
-    if (localStorage.theme) theme.global.name.value = localStorage.theme;
+  setup() {
+    const store = usePocketbaseStore();
+    return { store };
   },
 
-  data() {
-    return {
-      //
-    };
+  created() {
+    this.loadTheme();
+    this.connectToPocketbase();
+  },
+
+  methods: {
+    connectToPocketbase() {
+      const pb = new PocketBase("https://gregorykogan.tw1.su");
+      if (pb == null) {
+        console.error("Can't connect to Pocketbase!");
+      }
+      this.store.setPb(pb);
+    },
+    loadTheme() {
+      const theme = useTheme();
+      if (localStorage.theme) theme.global.name.value = localStorage.theme;
+    },
   },
 });
 </script>
