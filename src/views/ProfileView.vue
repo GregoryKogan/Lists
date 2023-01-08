@@ -20,19 +20,9 @@ import LogOutButton from "@/components/LogOutButton.vue";
 export default defineComponent({
   name: "ProfileView",
   components: { LogOutButton },
-  // data: () => ({
-  //   username: "" as string,
-
-  // }),
   setup() {
     const store = usePocketbaseStore();
     return { store };
   },
-  // created() {
-  //   this.username =
-  //     this.store.getCurrentUser == null
-  //       ? "Guest"
-  //       : this.store.getCurrentUser.username;
-  // },
 });
 </script>
