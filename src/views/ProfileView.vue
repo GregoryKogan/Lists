@@ -1,6 +1,13 @@
 <template>
   <div class="profile">
     <h1>This is a profile page</h1>
+    <h3>
+      Signed in as
+      {{
+        store.getCurrentUser == null ? "Guest" : store.getCurrentUser.username
+      }}
+    </h3>
+    <div style="height: 20px"></div>
     <log-out-button />
   </div>
 </template>
@@ -13,12 +20,19 @@ import LogOutButton from "@/components/LogOutButton.vue";
 export default defineComponent({
   name: "ProfileView",
   components: { LogOutButton },
+  // data: () => ({
+  //   username: "" as string,
+
+  // }),
   setup() {
     const store = usePocketbaseStore();
     return { store };
   },
-  mounted() {
-    console.log(this.store.getCurrentUser);
-  },
+  // created() {
+  //   this.username =
+  //     this.store.getCurrentUser == null
+  //       ? "Guest"
+  //       : this.store.getCurrentUser.username;
+  // },
 });
 </script>
